@@ -38,6 +38,10 @@ export default function LoginForm() {
             const response = await axios.post(`${baseurl}/user/login`, {
                 email: form.getValues("email"),
                 password: form.getValues("password")
+            }, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
             })
             return response.data
         },

@@ -1,1 +1,1 @@
-export const baseurl = "http://172.105.54.63:3000/api/v1"
+export const baseurl = "https://meetcode.subhadeep.xyz/api/v1"
