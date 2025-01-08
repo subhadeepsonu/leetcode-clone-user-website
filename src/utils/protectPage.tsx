@@ -6,7 +6,7 @@ export default function UserRouteProctection({ children }: { children: React.Rea
     const token = localStorage.getItem("token")
     useEffect(() => {
         if (!token) {
-            navigate("/login")
+            navigate("/")
         }
     }, [token])
     return <>{children}</>

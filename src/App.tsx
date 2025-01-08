@@ -10,6 +10,7 @@ import UserRouteProctection from './utils/protectPage'
 import ProtectLogin from './utils/ProtectLogin'
 import { Toaster } from 'sonner'
 import Navbar from './components/Navbar'
+import Landing from './pages/landing'
 function App() {
   const queryClient = new QueryClient()
   return (
@@ -18,7 +19,8 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<UserRouteProctection><Question /></UserRouteProctection>} />
+          <Route path='/' element={<ProtectLogin><Landing /></ProtectLogin>} />
+          <Route path='/questions' element={<UserRouteProctection><Question /></UserRouteProctection>} />
           <Route path='/questions/:id' element={<UserRouteProctection><QuestionById /></UserRouteProctection>} />
           <Route path='/profile' element={<UserRouteProctection><Profile /></UserRouteProctection>} />
           <Route path='/login' element={<ProtectLogin><Login /></ProtectLogin>} />

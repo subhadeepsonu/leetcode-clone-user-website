@@ -4,6 +4,8 @@ import { baseurl } from "@/utils/common"
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import CalendarHeatmap from 'react-calendar-heatmap';
+import 'react-calendar-heatmap/dist/styles.css';
 
 export default function Profile() {
     const QueryProfile = useQuery({
@@ -56,6 +58,12 @@ export default function Profile() {
                     <p className="text-gray-300 text-sm font-medium">{QueryProfile.data.data.correctsubmissions} out of {QueryProfile.data.data.submissions} submissions successful</p>
                     <Progress className="w-full mt-2 h-5" value={(QueryProfile.data.data.correctsubmissions / QueryProfile.data.data.submissions) * 100} />
                 </div>
+                <CalendarHeatmap classForValue={(value) => {
+                    if (!value) {
+                        return '#fff';
+                    }
+                    return `color-github-${value.count}`;
+                }} endDate={Date.now()} startDate={new Date(new Date().getTime() - 365 * 24 * 60 * 60 * 1000)} values={QueryProfile.data.data.values} ></CalendarHeatmap>
                 <p className="text-xl font-semibold pt-5">Recent Activity</p>
                 {QueryProfile.data.data.recent.map((question: any) => {
                     return <div className="flex justify-between items-center my-2 bg-neutral-800 rounded-sm  p-2">

@@ -6,14 +6,12 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
+import { Button } from "./ui/button"
 
 export default function Navbar() {
     const token = localStorage.getItem("token")
     const navigate = useNavigate()
-    const location = useLocation()
-    if (location.pathname === "/login" || location.pathname === "/register") {
-        return null
-    }
+
     return <div className="w-full bg-neutral-950 z-20  text-white  flex justify-between items-center h-16 border-b-2 border-neutral-950 fixed top-0 left-0 px-6">
         <div onClick={() => {
             navigate("/")
@@ -32,12 +30,12 @@ export default function Navbar() {
                     }} className="flex justify-center items-center hover:cursor-pointer">Profile</DropdownMenuItem>
                     <DropdownMenuItem onClick={() => {
                         localStorage.removeItem("token")
-                        navigate("/login")
+                        navigate("/")
                     }} className="flex bg-red-500 text-white focus:text-white hover:cursor-pointer focus:bg-red-600  justify-center items-center">
                         Logout
                     </DropdownMenuItem>
                 </DropdownMenuContent>
-            </DropdownMenu> : <button onClick={() => navigate("/login")}>Login</button>}
+            </DropdownMenu> : <Button variant={"secondary"} onClick={() => navigate("/login")}>Login</Button>}
         </div>
     </div>
 }
