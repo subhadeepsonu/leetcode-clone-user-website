@@ -9,7 +9,13 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/componen
 import { baseurl } from "@/utils/common"
 export default function QuestionById() {
     const params = useParams()
-    const [code, SetCode] = useState<string>("//write function and console log the function")
+    const [code, SetCode] = useState<string>(`
+function func(a) {
+    //logic here
+}
+        
+console.log(func(a));
+        `);
     const [submit, setSubmit] = useState<any>()
     const [confirm, setConfirm] = useState(true)
     const [loading, setLoading] = useState(false)
