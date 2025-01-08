@@ -149,7 +149,7 @@ console.log(func(a));
 
 
         </div>
-        <div className="h-screen w-full flex justify-center text-white items-center bg-neutral-900">
+        <div className="h-screen w-full lg:hidden flex justify-center text-white items-center bg-neutral-900">
             use bigger screen
         </div>
     </div>
